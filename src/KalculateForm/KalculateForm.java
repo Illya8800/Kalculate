@@ -1,5 +1,7 @@
 package KalculateForm;
 
 public class KalculateForm {
-    System.out.println("Hi");
+    public static void main(String[] args) {
+        System.out.println("Hi");
+    }
 }
