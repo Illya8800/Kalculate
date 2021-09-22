@@ -6,12 +6,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class numericAction implements ActionListener {
+public class clearAction implements ActionListener {
     KalculateForm kalculateForm = new KalculateForm();
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        JButton b = (JButton)e.getSource();
-        kalculateForm.addJText(b.getText());
+        kalculateForm.getText().setText("");
     }
 }
