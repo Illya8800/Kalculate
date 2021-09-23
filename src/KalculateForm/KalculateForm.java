@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class KalculateForm {
 
     private static JTextField JText;
-    private ArrayList<JButton> numBtn;
+    private ArrayList<JButton> numBtn; //Для хранения списка JButton
 
 
 
@@ -39,15 +39,14 @@ public class KalculateForm {
         }
         fr.add(myPanel2, BorderLayout.SOUTH);
         setButtonText();
-
         return fr;
     }
 
     private void setButtonText (){
         numBtn.get(0).setText("AC");
-        numBtn.get(0).addActionListener(new clearAction());
+        numBtn.get(0).addActionListener(new clearAction());//Слушатель события
         numBtn.get(1).setText("+/-");
-        numBtn.get(1).addActionListener(new ActionListener() {
+        numBtn.get(1).addActionListener(new ActionListener() { //Меняет положительное и отричательное число
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = JText.getText();
@@ -73,7 +72,7 @@ public class KalculateForm {
 
 
         numBtn.get(18).setText(".");
-        numBtn.get(18).addActionListener(new ActionListener() {
+        numBtn.get(18).addActionListener(new ActionListener() {//Вставляет точку для нецелых чисел
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = JText.getText();
@@ -117,9 +116,6 @@ public class KalculateForm {
         return JText;
     }
 
-    public ArrayList<JButton> getNumBtn() {
-        return numBtn;
-    }
 
     public void addJText(String text) {
         JText.setText(JText.getText() + text);

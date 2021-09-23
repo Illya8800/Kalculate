@@ -1,11 +1,11 @@
 package Actions;
 
 import KalculateForm.KalculateForm;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+    /**
+     * Класс отвечает за очистку поля для ввода текста.
+     * Кол-во слушателей: 1.*/
 public class clearAction implements ActionListener {
     KalculateForm kalculateForm = new KalculateForm();
 
