@@ -2,6 +2,8 @@ package KalculateForm;
 
 import Actions.clearAction;
 import Actions.numericAction;
+import Operators.Equal;
+import Operators.Plus;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,13 @@ public class KalculateForm {
     private static JTextField JText;
     private ArrayList<JButton> numBtn; //Для хранения списка JButton
 
+    public void setJText(JTextField JText) {
+        this.JText = JText;
+    }
+
+    public void setJText(double variable) {
+        this.JText.setText(String.valueOf(variable));
+    }
 
 
 
@@ -43,6 +52,15 @@ public class KalculateForm {
     }
 
     private void setButtonText (){
+        numBtn.get(2).setText("%");
+        numBtn.get(3).setText("/");
+        numBtn.get(7).setText("*");
+        numBtn.get(11).setText("-");
+        numBtn.get(15).setText("+");
+        numBtn.get(15).addActionListener(new Plus());
+        numBtn.get(19).setText("=");
+        numBtn.get(19).addActionListener(new Equal());
+
         numBtn.get(0).setText("AC");
         numBtn.get(0).addActionListener(new clearAction());//Слушатель события
         numBtn.get(1).setText("+/-");
@@ -53,7 +71,7 @@ public class KalculateForm {
                 double temp = Double.parseDouble(s);
                 if (temp > 0 && temp != 0){
                     JText.setText("-" + s);
-                    } else {
+                } else {
                     temp *= -1;
                     JText.setText("" + temp);
                     if(JText.getText().substring(JText.getText().length() - 2, JText.getText().length()).equals(".0")) {
@@ -62,14 +80,6 @@ public class KalculateForm {
                 }
             }
         });
-        numBtn.get(2).setText("%");
-        numBtn.get(3).setText("/");
-        numBtn.get(7).setText("*");
-        numBtn.get(11).setText("-");
-        numBtn.get(15).setText("+");
-        numBtn.get(19).setText("=");
-
-
         numBtn.get(18).setText(".");
         numBtn.get(18).addActionListener(new ActionListener() {//Вставляет точку для нецелых чисел
             @Override
@@ -85,7 +95,6 @@ public class KalculateForm {
                 if(!com){ JText.setText(JText.getText() + ".");  }
             }
         });
-
         numBtn.get(4).setText("7");
         numBtn.get(4).addActionListener(new numericAction());
         numBtn.get(5).setText("8");
@@ -108,7 +117,6 @@ public class KalculateForm {
         numBtn.get(16).addActionListener(new numericAction());
         numBtn.get(17).setText("00");
         numBtn.get(17).addActionListener(new numericAction());
-
     }
 
     public JTextField getText() {
