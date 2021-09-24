@@ -1,4 +1,4 @@
-package KalculateForm;
+import KalculateForm.KalculateForm;
 
 import javax.swing.*;
 

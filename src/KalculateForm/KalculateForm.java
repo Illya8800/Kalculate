@@ -59,7 +59,6 @@ public class KalculateForm {
                     if(JText.getText().substring(JText.getText().length() - 2, JText.getText().length()).equals(".0")) {
                         JText.setText(JText.getText().substring(0, JText.getText().length()-2));
                     }
-
                 }
             }
         });
