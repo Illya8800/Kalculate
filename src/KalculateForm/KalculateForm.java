@@ -53,6 +53,14 @@ public class KalculateForm {
 
     private void setButtonText (){
         numBtn.get(2).setText("%");
+        numBtn.get(2).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = JText.getText();
+                double temp = Double.parseDouble(s);
+                JText.setText("" + temp/100);
+            }
+        });
         numBtn.get(3).setText("/");
         numBtn.get(7).setText("*");
         numBtn.get(11).setText("-");
@@ -126,10 +134,7 @@ public class KalculateForm {
 
     public void addJText(String text) {
         JText.setText(JText.getText() + text);
-
-}
-
-
+    }
 }
 
 

@@ -19,7 +19,6 @@ public class Equal implements ActionListener {
         switch (Operator.operatorId) {
             case 1: {
                 Operator.second = Double.parseDouble(kalculateForm.getText().getText());
-
                 kalculateForm.setJText(Operator.first + Operator.second);
                 break;
             }
