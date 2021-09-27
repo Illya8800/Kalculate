@@ -63,7 +63,7 @@ public class KalculateForm {
         });
         numBtn.get(3).setText("/");
         numBtn.get(7).setText("*");
-        numBtn.get(11).setText("-");//
+        numBtn.get(11).setText("-");
         numBtn.get(15).setText("+");//dwko
         numBtn.get(15).addActionListener(new Plus());
         numBtn.get(19).setText("=");
