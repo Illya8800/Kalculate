@@ -11,8 +11,8 @@ public class Division extends Operator implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         KalculateForm kalculateForm = new KalculateForm();
         Operator operator = new Operator();
-        Operator.first = Double.parseDouble(kalculateForm.getText().getText());
+        Operator.first = Double.parseDouble(kalculateForm.getTextField().getText());
         Operator.operatorId = 4;
-        kalculateForm.getText().setText("");
+        kalculateForm.getTextField().setText("");
     }
 }

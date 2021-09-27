@@ -11,6 +11,6 @@ public class clearAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        kalculateForm.getText().setText("");
+        kalculateForm.getTextField().setText("");
     }
 }

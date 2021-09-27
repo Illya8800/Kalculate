@@ -15,8 +15,7 @@ public class KalculateForm {
     private static JTextField JText;
     private ArrayList<JButton> numBtn; //Для хранения списка JButton
 
-    public void setJText(JTextField JText) {
-        this.JText = JText;
+    public void setJText(JTextField JText) { this.JText = JText;
     }
 
     public void setJText(double variable) {
@@ -129,7 +128,7 @@ public class KalculateForm {
         numBtn.get(17).addActionListener(new numericAction());
     }
 
-    public JTextField getText() {
+    public JTextField getTextField() {
         return JText;
     }
 
