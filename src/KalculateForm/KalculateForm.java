@@ -2,8 +2,7 @@ package KalculateForm;
 
 import Actions.clearAction;
 import Actions.numericAction;
-import Operators.Equal;
-import Operators.Plus;
+import Operators.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,9 +61,12 @@ public class KalculateForm {
             }
         });
         numBtn.get(3).setText("/");
+        numBtn.get(3).addActionListener(new Division());
         numBtn.get(7).setText("*");
+        numBtn.get(7).addActionListener(new Multiple());
         numBtn.get(11).setText("-");
-        numBtn.get(15).setText("+");//dwko
+        numBtn.get(11).addActionListener(new Minus());
+        numBtn.get(15).setText("+");
         numBtn.get(15).addActionListener(new Plus());
         numBtn.get(19).setText("=");
         numBtn.get(19).addActionListener(new Equal());
