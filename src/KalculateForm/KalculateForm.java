@@ -15,13 +15,13 @@ public class KalculateForm {
     private static JTextField JText;
     private ArrayList<JButton> numBtn; //Для хранения списка JButton
 
-    public void setJText(JTextField JText) { this.JText = JText;
+    public void setJText(JTextField JText) {
+        this.JText = JText;
     }
 
     public void setJText(double variable) {
         this.JText.setText(String.valueOf(variable));
     }
-
 
 
     public JFrame createMainForm() {
@@ -49,14 +49,14 @@ public class KalculateForm {
         return fr;
     }
 
-    private void setButtonText (){
+    private void setButtonText() {
         numBtn.get(2).setText("%");
         numBtn.get(2).addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String s = JText.getText();
                 double temp = Double.parseDouble(s);
-                JText.setText("" + temp/100);
+                JText.setText("" + temp / 100);
             }
         });
         numBtn.get(3).setText("/");
@@ -78,13 +78,13 @@ public class KalculateForm {
             public void actionPerformed(ActionEvent e) {
                 String s = JText.getText();
                 double temp = Double.parseDouble(s);
-                if (temp > 0 && temp != 0){
+                if (temp > 0 && temp != 0) {
                     JText.setText("-" + s);
                 } else {
                     temp *= -1;
                     JText.setText("" + temp);
-                    if(JText.getText().substring(JText.getText().length() - 2, JText.getText().length()).equals(".0")) {
-                        JText.setText(JText.getText().substring(0, JText.getText().length()-2));
+                    if (JText.getText().substring(JText.getText().length() - 2, JText.getText().length()).equals(".0")) {
+                        JText.setText(JText.getText().substring(0, JText.getText().length() - 2));
                     }
                 }
             }
@@ -96,12 +96,14 @@ public class KalculateForm {
                 String s = JText.getText();
                 boolean com = false;
                 for (int i = 0; i < s.length(); i++) {
-                    if (s.charAt(i) == '.'){
+                    if (s.charAt(i) == '.') {
                         com = true;
                         break;
                     }
                 }
-                if(!com){ JText.setText(JText.getText() + ".");  }
+                if (!com) {
+                    JText.setText(JText.getText() + ".");
+                }
             }
         });
         numBtn.get(4).setText("7");
@@ -137,6 +139,3 @@ public class KalculateForm {
         JText.setText(JText.getText() + text);
     }
 }
-
-
-

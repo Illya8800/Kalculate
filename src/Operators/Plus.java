@@ -9,10 +9,6 @@ public class Plus extends Operator implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        KalculateForm kalculateForm = new KalculateForm();
-        Operator operator = new Operator();
-        Operator.first = Double.parseDouble(kalculateForm.getTextField().getText());
-        Operator.operatorId = 1;
-        kalculateForm.getTextField().setText("");
+        isOperation((byte) 1);
     }
 }
