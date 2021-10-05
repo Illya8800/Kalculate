@@ -10,38 +10,33 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Equal implements ActionListener, Minus, Plus, Multiple, Division {
+public class Equal implements  ActionListener, Minus, Plus, Multiple, Division {
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Operator operator = new Operator();
         KalculateForm kalculateForm = new KalculateForm();
 
         switch (Operator.operatorId) {
-            case 1: {
+            case 1 -> {
                 Operator.second = Double.parseDouble(kalculateForm.getTextField().getText());
                 kalculateForm.setJText(plus(Operator.first, Operator.second));
                 drop();
-                break;
             }
-            case 2: {
+            case 2 -> {
                 Operator.second = Double.parseDouble(kalculateForm.getTextField().getText());
                 kalculateForm.setJText(minus(Operator.first, Operator.second));
                 drop();
-                break;
             }
-            case 3: {
+            case 3 -> {
                 Operator.second = Double.parseDouble(kalculateForm.getTextField().getText());
                 kalculateForm.setJText(multiple(Operator.first, Operator.second));
                 drop();
-                break;
             }
-            case 4: {
+            case 4 -> {
                 Operator.second = Double.parseDouble(kalculateForm.getTextField().getText());
                 kalculateForm.setJText(division(Operator.first, Operator.second));
                 drop();
-                break;
             }
         }
 
