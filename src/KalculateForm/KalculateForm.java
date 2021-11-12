@@ -35,10 +35,10 @@ public class KalculateForm {
         JText.setEditable(false);
         fr.getContentPane().add(BorderLayout.NORTH, JText);
 
-        myPanel2.setLayout(new GridLayout(5, 4));
+        myPanel2.setLayout(new GridLayout(6, 4));
 
         ButtonGroup myGroup = new ButtonGroup();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 24; i++) {
             numBtn.add(new JButton(""));
             myPanel2.setPreferredSize(new Dimension(250, 250));
             myGroup.add(numBtn.get(i));
@@ -128,6 +128,42 @@ public class KalculateForm {
         numBtn.get(16).addActionListener(new numericAction());
         numBtn.get(17).setText("00");
         numBtn.get(17).addActionListener(new numericAction());
+
+        numBtn.get(20).setText("√");
+        numBtn.get(20).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = JText.getText();
+                double temp = Double.parseDouble(s);
+                JText.setText("" + Math.sqrt(temp));
+            }
+        });
+
+        numBtn.get(21).setText("²");
+        numBtn.get(21).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = JText.getText();
+                double temp = Double.parseDouble(s);
+                JText.setText("" + Math.pow(temp, 2));
+            }
+        });
+
+        numBtn.get(22).setText("e");
+        numBtn.get(22).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JText.setText("2.71828182846");
+            }
+        });
+
+        numBtn.get(23).setText("π");
+        numBtn.get(23).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JText.setText(String.valueOf(Math.PI));
+            }
+        });
     }
 
     public JTextField getTextField() {
