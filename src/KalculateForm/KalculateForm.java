@@ -2,6 +2,7 @@ package KalculateForm;
 
 import Actions.clearAction;
 import Actions.numericAction;
+import OperationInterfaces.HardOperations;
 import Operators.*;
 
 import javax.swing.*;
@@ -12,8 +13,14 @@ import java.util.ArrayList;
 
 public class KalculateForm {
 
+    private HardOperations hardOperations;
+
     private static JTextField JText;
     private ArrayList<JButton> numBtn; //Для хранения списка JButton
+
+    public void setHardOperation(HardOperations hardOperations) {
+        this.hardOperations = hardOperations;
+    }
 
     public void setJText(JTextField JText) {
         this.JText = JText;
@@ -27,7 +34,7 @@ public class KalculateForm {
     public JFrame createMainForm() {
         JFrame fr = new JFrame("Калькулятор");
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fr.setSize(250, 305);
+        fr.setSize(250, 355);
         JPanel myPanel2 = new JPanel();
         numBtn = new ArrayList<>();
 
@@ -35,12 +42,12 @@ public class KalculateForm {
         JText.setEditable(false);
         fr.getContentPane().add(BorderLayout.NORTH, JText);
 
-        myPanel2.setLayout(new GridLayout(5, 4));
+        myPanel2.setLayout(new GridLayout(7, 4));
 
         ButtonGroup myGroup = new ButtonGroup();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 28; i++) {
             numBtn.add(new JButton(""));
-            myPanel2.setPreferredSize(new Dimension(250, 250));
+            myPanel2.setPreferredSize(new Dimension(250, 300));
             myGroup.add(numBtn.get(i));
             myPanel2.add(numBtn.get(i));
         }
@@ -128,6 +135,90 @@ public class KalculateForm {
         numBtn.get(16).addActionListener(new numericAction());
         numBtn.get(17).setText("00");
         numBtn.get(17).addActionListener(new numericAction());
+
+
+
+
+
+
+
+
+
+        numBtn.get(20).setText("√");
+        numBtn.get(20).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = JText.getText();
+                double temp = Double.parseDouble(s);
+
+                setHardOperation(new SQRT());
+                JText.setText(String.valueOf(hardOperations.operation(temp)));
+            }
+        });
+
+        numBtn.get(21).setText("²");
+        numBtn.get(21).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String s = JText.getText();
+                double temp = Double.parseDouble(s);
+
+                setHardOperation(new POW());
+                JText.setText(String.valueOf(hardOperations.operation(temp)));
+            }
+        });
+
+        numBtn.get(22).setText("e");
+        numBtn.get(22).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setHardOperation(new Epsilon());
+                JText.setText(String.valueOf(hardOperations.operation(0)));
+            }
+        });
+
+        numBtn.get(23).setText("π");
+        numBtn.get(23).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setHardOperation(new PI());
+                JText.setText(String.valueOf(hardOperations.operation(0)));
+            }
+        });
+
+        numBtn.get(24).setText("!");
+        numBtn.get(24).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setHardOperation(new Factorial());
+                JText.setText(String.valueOf(hardOperations.operation((int) Double.parseDouble(JText.getText()))));
+            }
+        });
+
+        numBtn.get(25).setText("sin");
+        numBtn.get(25).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setHardOperation(new Sinus());
+                JText.setText(String.valueOf(hardOperations.operation(Double.parseDouble(JText.getText()))));
+            }
+        });
+
+        numBtn.get(26).setText("cos");
+        numBtn.get(26).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setHardOperation(new Cosinus());
+                JText.setText(String.valueOf(hardOperations.operation(Double.parseDouble(JText.getText()))));
+            }
+        });
+
+        numBtn.get(27).setText("");
+        numBtn.get(27).addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
     }
 
     public JTextField getTextField() {
